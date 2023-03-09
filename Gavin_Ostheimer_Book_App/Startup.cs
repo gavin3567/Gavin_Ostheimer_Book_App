@@ -36,6 +36,11 @@ namespace Gavin_Ostheimer_Book_App
            });
 
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,12 +53,29 @@ namespace Gavin_Ostheimer_Book_App
 
             //Corresponds to wwwroot
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("typepage", 
+                    "{Category}/Page{pageNum}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute(
+                    "Paging",
+                    "Page{pageNum}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
+
+
+                endpoints.MapControllerRoute("type",
+                    "{Category}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
+       
+
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
         }
     }

@@ -1,0 +1,40 @@
+﻿@page
+@model Gavin_Ostheimer_Book_App.Pages.AddBooksModel
+@{
+}
+
+<h2>Your basket</h2>
+
+<table class="table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var i in Model.basket.Items)
+            {
+        <tr>
+            <td>@i.Book.Title</td>
+            <td>@i.Quantity</td>
+            <td>25</td>
+            <td>@(i.Quantity * i.Book.Price)</td>
+        </tr>
+            }
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="3">Total:</td>
+            <td>@Model.basket.CalculateTotal().ToString("c")</td>
+        </tr>
+    </tfoot>
+</table>
+
+<div>
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+</div>

@@ -1,29 +1,4 @@
-﻿@*<!DOCTYPE html>
-
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>@ViewBag.Title</title>
-        <link href="~/lib/css/bootstrap.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="bg-dark text-white p-2">
-            <span class="navbar-brand ml-2">BOOK STORE</span>
-        </div>
-        <div class="row m-1 p-1">
-            <div id="categories" class="col-3">
-                Put something useful here later
-            </div>
-            <div class="col-9">
-                    @RenderBody()
-            </div>
-            </div>
-
-                <footer>Goodbye</footer>
-    </body>
-    </html>*@
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -56,8 +31,8 @@
         <span class="navbar-brand ml-2">Gavin's Book Store</span>
     </div>
     <div class="row m-1 p-1">
-        <div id="categories" class="col-3">
-            If you haven't read 1984 by George Orwell you really should
+        <div id="types" class="col-3">
+            <vc:types></vc:types>
         </div>
         <div class="col-9">
             @RenderBody()
@@ -67,5 +42,27 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
+
+    <br/>
+    <br/>
 </body>
+
+<footer style="background-color: #333; padding: 20px; color: white; text-align: center;">
+    <h1 style="color: red; font-size: 36px; font-family: Arial, sans-serif;">The Hunt for Red October Movie</h1>
+
+    <div style="margin-top: 20px;">
+        <p style="font-size: 20px;">Click play to listen to a famous audio clip from the movie:</p>
+        <audio controls="controls" style="margin-top: 10px;">
+            <source src="~/audio/revolution.mp3" type="audio/mpeg" />
+        </audio>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <p style="font-size: 20px;">Click play below to see an advertisement for the movie:</p>
+        <video controls="controls" style="margin-top: 10px; max-width: 100%;">
+            <source src="~/video/1884.mp4" type="video/mp4" />
+        </video>
+    </div>
+</footer>
+
 </html>
