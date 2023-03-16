@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -28,7 +29,19 @@
         </nav>
     </header>
     <div class="bg-dark text-white p-2">
-        <span class="navbar-brand ml-2">Gavin's Book Store</span>
+        <div class="container">
+            <!-- Add container div -->
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Change col to col-md-6 -->
+                    <span class="navbar-brand ml-2">Gavin's Bookstore</span>
+                </div>
+                <div class="col-md-6 text-right">
+                    <!-- Add this div for basket summary -->
+                    <vc:basket-summary />
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row m-1 p-1">
         <div id="types" class="col-3">

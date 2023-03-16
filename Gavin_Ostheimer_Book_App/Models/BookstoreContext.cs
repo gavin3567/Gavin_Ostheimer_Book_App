@@ -20,6 +20,7 @@ namespace Gavin_Ostheimer_Book_App.Models
         }
 
         public DbSet<Book> Books { get; set; }
+        public DbSet<Sale> Sales { get; set; }
 
     }
 }
